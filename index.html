@@ -9,7 +9,7 @@
     <script src="js/chessboard.js"></script>
   </head>
   <body style='margin : 0px; overflow: hidden;'>
-      <a-scene embedded arjs='sourceType: webcam;' light="defaultLightsEnabled: false">
+      <a-scene embedded arjs='trackingMethod: best;' light="defaultLightsEnabled: false">
          
         <a-assets>
             <a-mixin id="tile" 
@@ -46,15 +46,17 @@
         <a-entity light="type: point; color: white; intensity: 1" position="-4 7 -5"></a-entity> 
         <a-entity light="type: ambient; color: white; intensity: 0.4"></a-entity> 
         <!-- Board container - all positions will be relative to the ones of the container so we can move the board around later -->
-        <a-plane board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="-4 0 -10">
-          <!-- tiles & pieces will be created and placed at the initialization of the board component -->
-        </a-plane>
+        
+        <a-anchor hit-testing-enabled='true'>
+          <a-plane board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="-4 0 -10">
+            <!-- tiles & pieces will be created and placed at the initialization of the board component -->
+          </a-plane>
 
-        <!-- this is our floor -->
-        <a-box width="75" height="0.2" depth="75" static-body visible="false"></a-box>
-
+          <!-- this is our floor -->
+          <!--a-box width="75" height="0.2" depth="75" static-body visible="false"></a-box-->
+        </a-anchor>
        <!-- Oh and this is the marker -->
-        <a-marker-camera preset='hiro'></a-marker-camera>
+        <!--a-marker-camera preset='hiro'></a-marker-camera-->
       </a-scene>
   </body>
 </html>
