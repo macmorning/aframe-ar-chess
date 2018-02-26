@@ -48,12 +48,11 @@
         <!-- Board container - all positions will be relative to the ones of the container so we can move the board around later -->
         
         <a-anchor hit-testing-enabled='true'>
-          <a-plane board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="-4 0 -10">
+          <a-plane static-body board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="0 0 0">
             <!-- tiles & pieces will be created and placed at the initialization of the board component -->
           </a-plane>
 
-          <!-- this is our floor -->
-          <a-box width="75" height="0.2" depth="75" static-body visible="false"></a-box>
+
         </a-anchor>
        <!-- Oh and this is the marker -->
         <!--a-marker-camera preset='hiro'></a-marker-camera-->
