@@ -48,7 +48,7 @@
         <!-- Board container - all positions will be relative to the ones of the container so we can move the board around later -->
         
         <a-anchor hit-testing-enabled='true'>
-          <a-plane static-body color="red" id="boardContainer" width="8" height="8">
+          <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box><!--a-plane static-body board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="0 0 0"-->
             <!-- tiles & pieces will be created and placed at the initialization of the board component -->
           </a-plane>
 
