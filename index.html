@@ -2,21 +2,19 @@
   <head>
     <title>aframe chess</title>
     <script src="https://rawgit.com/ngokevin/aframe/animationbugless/dist/aframe-master.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <!--script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="js/components.js"></script>
-    <script src="js/chessboard.js"></script>
+    <script src="js/chessboard.js"></script-->
   </head>
   <body style='margin : 0px; overflow: hidden;'>
-      <a-scene embedded arjs='trackingMethod: best;' light="defaultLightsEnabled: false">
+      <a-scene embedded arjs='trackingMethod: best;'>
          
-        <a-assets>
+        <!--a-assets>
             <a-mixin id="tile" 
                 geometry="primitive: box; depth: 0.2; width: 1; height: 1" 
                 material="">
-                <!-- event-set__enter="_event: mouseenter;scale: 1 1 1.1;"
-                event-set__leave="_event: mouseleave;scale: 1 1 1;" -->
             </a-mixin>
 
             <a-mixin id="piece" scale="0.05 0.05 0.05" rotation="-90 0 0"></a-mixin>
@@ -43,11 +41,13 @@
             <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitequeen" obj-model="obj: #queenObj; mtl: #whiteMtl"></a-mixin>
         </a-assets>
 
-        <a-entity light="type: point; color: white; intensity: 1" position="-4 7 -5"></a-entity> 
-        <a-entity light="type: ambient; color: white; intensity: 0.4"></a-entity> 
         <!-- Board container - all positions will be relative to the ones of the container so we can move the board around later -->
-        
-        <a-anchor hit-testing-enabled='true'>
+
+      <a-scene embedded arjs='sourceType: webcam;'>
+          <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+          <a-marker-camera preset='hiro'></a-marker-camera>
+      </a-scene>
+        <!--a-anchor hit-testing-enabled='true'>
           <a-box position='0 0.5 0' material='opacity: 0.5; side:double; color:red;'>
             <a-torus-knot radius='0.26' radius-tubular='0.05'>
               <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
@@ -56,9 +56,9 @@
             <!--a-plane static-body board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="0 0 0"-->
             <!-- tiles & pieces will be created and placed at the initialization of the board component -->
             <!--/a-plane-->
-        </a-anchor>
+        <!--/a-anchor-->
        <!-- Oh and this is the marker -->
         <!--a-marker-camera preset='hiro'></a-marker-camera-->
-      </a-scene>
+      <!--/a-scene-->
   </body>
 </html>
