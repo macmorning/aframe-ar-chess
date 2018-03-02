@@ -1,64 +1,42 @@
-<html>
-  <head>
-    <title>aframe chess</title>
-    <script src="https://rawgit.com/ngokevin/aframe/animationbugless/dist/aframe-master.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <!--script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/chessboard.js"></script-->
-  </head>
-  <body style='margin : 0px; overflow: hidden;'>
-      <a-scene embedded arjs='trackingMethod: best;'>
-         
-        <!--a-assets>
-            <a-mixin id="tile" 
-                geometry="primitive: box; depth: 0.2; width: 1; height: 1" 
-                material="">
-            </a-mixin>
+<script src="https://rawgit.com/ngokevin/aframe/animationbugless/dist/aframe-master.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/chessboard.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+<a-scene embedded arjs='sourceType: webcam;'>
+    <a-assets>
+        <a-mixin id="tile" 
+            geometry="primitive: box; height: 0.2;" 
+            material="">
+        </a-mixin>
 
-            <a-mixin id="piece" scale="0.05 0.05 0.05" rotation="-90 0 0"></a-mixin>
+        <a-mixin id="piece" scale="0.05 0.05 0.05" rotation="-90 0 0"></a-mixin>
 
-            <a-asset-item id="pawnObj" src="assets/pawn.obj"></a-asset-item>
-            <a-asset-item id="knightObj" src="assets/knight.obj"></a-asset-item>
-            <a-asset-item id="rookObj" src="assets/rook.obj"></a-asset-item>
-            <a-asset-item id="bishopObj" src="assets/bishop.obj"></a-asset-item>
-            <a-asset-item id="kingObj" src="assets/king.obj"></a-asset-item>
-            <a-asset-item id="queenObj" src="assets/queen.obj"></a-asset-item>
-            <a-asset-item id="whiteMtl" src="assets/white.mtl"></a-asset-item>
-            <a-asset-item id="blackMtl" src="assets/black.mtl"></a-asset-item>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackpawn" obj-model="obj: #pawnObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackknight" obj-model="obj: #knightObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackrook" obj-model="obj: #rookObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackbishop" obj-model="obj: #bishopObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackking" obj-model="obj: #kingObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackqueen" obj-model="obj: #queenObj; mtl: #blackMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitepawn" obj-model="obj: #pawnObj; mtl: #whiteMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteknight" obj-model="obj: #knightObj; mtl: #whiteMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiterook" obj-model="obj: #rookObj; mtl: #whiteMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitebishop" obj-model="obj: #bishopObj; mtl: #whiteMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteking" obj-model="obj: #kingObj; mtl: #whiteMtl"></a-mixin>
-            <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitequeen" obj-model="obj: #queenObj; mtl: #whiteMtl"></a-mixin>
-        </a-assets>
+        <a-asset-item id="pawnObj" src="assets/pawn.obj"></a-asset-item>
+        <a-asset-item id="knightObj" src="assets/knight.obj"></a-asset-item>
+        <a-asset-item id="rookObj" src="assets/rook.obj"></a-asset-item>
+        <a-asset-item id="bishopObj" src="assets/bishop.obj"></a-asset-item>
+        <a-asset-item id="kingObj" src="assets/king.obj"></a-asset-item>
+        <a-asset-item id="queenObj" src="assets/queen.obj"></a-asset-item>
+        <a-asset-item id="whiteMtl" src="assets/white.mtl"></a-asset-item>
+        <a-asset-item id="blackMtl" src="assets/black.mtl"></a-asset-item>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackpawn" obj-model="obj: #pawnObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackknight" obj-model="obj: #knightObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackrook" obj-model="obj: #rookObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackbishop" obj-model="obj: #bishopObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackking" obj-model="obj: #kingObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackqueen" obj-model="obj: #queenObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitepawn" obj-model="obj: #pawnObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteknight" obj-model="obj: #knightObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiterook" obj-model="obj: #rookObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitebishop" obj-model="obj: #bishopObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteking" obj-model="obj: #kingObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitequeen" obj-model="obj: #queenObj; mtl: #whiteMtl"></a-mixin>
+    </a-assets>
 
-        <!-- Board container - all positions will be relative to the ones of the container so we can move the board around later -->
-
-      <a-scene embedded arjs='sourceType: webcam;'>
-          <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-          <a-marker-camera preset='hiro'></a-marker-camera>
-      </a-scene>
-        <!--a-anchor hit-testing-enabled='true'>
-          <a-box position='0 0.5 0' material='opacity: 0.5; side:double; color:red;'>
-            <a-torus-knot radius='0.26' radius-tubular='0.05'>
-              <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-            </a-torus-knot>
-          </a-box>
-            <!--a-plane static-body board color="black" id="boardContainer" rotation="90 0 0" width="8" height="8" position="0 0 0"-->
-            <!-- tiles & pieces will be created and placed at the initialization of the board component -->
-            <!--/a-plane-->
-        <!--/a-anchor-->
-       <!-- Oh and this is the marker -->
-        <!--a-marker-camera preset='hiro'></a-marker-camera-->
-      <!--/a-scene-->
-  </body>
-</html>
+    <a-box static-body board id="boardContainer" width="0.1" depth="0.1" height="0.01" position="0 0 0"></a-box>
+    <a-marker-camera preset='hiro'></a-marker-camera>
+</a-scene>
+</body>

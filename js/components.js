@@ -9,12 +9,13 @@ AFRAME.registerComponent("board", {
             this.el.removeChild(this.el.lastChild);
         }
         // add the tiles
-        this._drawBoard();
-        this._createPieces();
+        this._drawBoard(0.2, 0.2);
+
+        // this._createPieces();
         // initialize the CHESSBOARD object
-        CHESSBOARD.initChessBoard();
+        // CHESSBOARD.initChessBoard();
     },
-    _drawBoard: function () {
+    _drawBoard: function (width, depth) {
         let self = this;
         self.data.chessBoardColumns.forEach(function (col, colIndex) {
             self.data.chessBoardRows.forEach(function (row, rowIndex) {
@@ -22,12 +23,13 @@ AFRAME.registerComponent("board", {
                 let color = (rowIndex % 2 === colIndex % 2 ? "white" : "black");
                 // create the new element in the dom
                 let el = document.createElement("a-entity");
+                el.setAttribute("geometry", "primitive: box; height: 0.05; width: " + width + "; depth: " + depth);
                 // set the id of the new element : "sqa1", "sqc7", ...
                 el.id = "sq" + col + row;
                 // declare that the new element has the tile component
                 el.setAttribute("tile", "name:" + el.id + ";color:" + color);
                 // position is conveniently calculated based on the column and row index
-                el.setAttribute("position", (colIndex + 1) + " " + (rowIndex + 1) + " 0");
+                el.setAttribute("position", (colIndex * width - 4 * width) + " 0 " + (rowIndex * depth - 4 * depth));
                 // add the element to the board element
                 self.el.appendChild(el);
             });

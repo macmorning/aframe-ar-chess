@@ -1,4 +1,4 @@
-# aframe-chess
+# aframe-ar-chess
 This is a little project built from aframe-chess to learn WebAR with @aframe-vr.
 
 
