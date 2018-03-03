@@ -11,9 +11,9 @@ AFRAME.registerComponent("board", {
         // add the tiles
         this._drawBoard(0.2, 0.2);
 
-        // this._createPieces();
+        this._createPieces();
         // initialize the CHESSBOARD object
-        // CHESSBOARD.initChessBoard();
+        CHESSBOARD.initChessBoard();
     },
     _drawBoard: function (width, depth) {
         let self = this;

@@ -12,7 +12,7 @@
             material="">
         </a-mixin>
 
-        <a-mixin id="piece" scale="0.05 0.05 0.05" rotation="-90 0 0"></a-mixin>
+        <a-mixin id="piece" scale="0.01 0.01 0.01" rotation="-90 0 0"></a-mixin>
 
         <a-asset-item id="pawnObj" src="assets/pawn.obj"></a-asset-item>
         <a-asset-item id="knightObj" src="assets/knight.obj"></a-asset-item>
@@ -22,19 +22,20 @@
         <a-asset-item id="queenObj" src="assets/queen.obj"></a-asset-item>
         <a-asset-item id="whiteMtl" src="assets/white.mtl"></a-asset-item>
         <a-asset-item id="blackMtl" src="assets/black.mtl"></a-asset-item>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackpawn" obj-model="obj: #pawnObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackknight" obj-model="obj: #knightObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackrook" obj-model="obj: #rookObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackbishop" obj-model="obj: #bishopObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackking" obj-model="obj: #kingObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="blackqueen" obj-model="obj: #queenObj; mtl: #blackMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitepawn" obj-model="obj: #pawnObj; mtl: #whiteMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteknight" obj-model="obj: #knightObj; mtl: #whiteMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiterook" obj-model="obj: #rookObj; mtl: #whiteMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitebishop" obj-model="obj: #bishopObj; mtl: #whiteMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whiteking" obj-model="obj: #kingObj; mtl: #whiteMtl"></a-mixin>
-        <a-mixin dynamic-body="shape: box;angularDamping: 0.9" id="whitequeen" obj-model="obj: #queenObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="blackpawn" obj-model="obj: #pawnObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="blackknight" obj-model="obj: #knightObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="blackrook" obj-model="obj: #rookObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="blackbishop" obj-model="obj: #bishopObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="blackking" obj-model="obj: #kingObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="blackqueen" obj-model="obj: #queenObj; mtl: #blackMtl"></a-mixin>
+        <a-mixin id="whitepawn" obj-model="obj: #pawnObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="whiteknight" obj-model="obj: #knightObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="whiterook" obj-model="obj: #rookObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="whitebishop" obj-model="obj: #bishopObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="whiteking" obj-model="obj: #kingObj; mtl: #whiteMtl"></a-mixin>
+        <a-mixin id="whitequeen" obj-model="obj: #queenObj; mtl: #whiteMtl"></a-mixin>
     </a-assets>
+
 
     <a-box static-body board id="boardContainer" width="0.1" depth="0.1" height="0.01" position="0 0 0"></a-box>
     <a-marker-camera preset='hiro'></a-marker-camera>
