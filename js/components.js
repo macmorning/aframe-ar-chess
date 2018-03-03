@@ -117,26 +117,12 @@ AFRAME.registerComponent("piece", {
         this.el.setAttribute("mixin", this.data.color + this.data.type + " piece pickedup-anim");
 
         // set the position and rotation of the piece
-        let position = this.el.getAttribute("position");
-        this.el.setAttribute("position", { "x": position.x, "y": position.y, "z": this.data.downPosition });
-        this.el.setAttribute("rotation", this.data.initRotationX + " " + this.data.initRotationY + " " + this.data.initRotationZ);
+        // let position = this.el.getAttribute("position");
+        // this.el.setAttribute("position", { "x": position.x, "y": position.y, "z": this.data.downPosition });
+        // this.el.setAttribute("rotation", this.data.initRotationX + " " + this.data.initRotationY + " " + this.data.initRotationZ);
 
-        this.pStart = new THREE.Vector3();
-        this.el.addEventListener("click", this.forcePush.bind(this));
-    },
-    forcePush: function () {
-        console.log("force pushing " + this.el.id);
-        let force;
-        let el = this.el;
-        this.sourceEl = this.el.sceneEl.querySelector("[camera]");
-        let pStart = this.pStart.copy(this.sourceEl.getAttribute("position"));
-
-        // Compute direction of force, normalize, then scale.
-        force = el.body.position.vsub(pStart);
-        force.normalize();
-        force.scale(this.data.force, force);
-
-        el.body.applyImpulse(force, el.body.position);
+        // this.pStart = new THREE.Vector3();
+        // this.el.addEventListener("click", this.forcePush.bind(this));
     },
     update: function () {
     },
