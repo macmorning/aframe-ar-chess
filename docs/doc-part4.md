@@ -1,1 +1,0 @@
-# Enforcing chess rules
