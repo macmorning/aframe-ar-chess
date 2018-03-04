@@ -116,26 +116,20 @@ AFRAME.registerComponent("piece", {
         // use the mixins : [white|black][pawn|rook|knight|bishop|queen|king] piece
         this.el.setAttribute("mixin", this.data.color + this.data.type + " piece pickedup-anim");
 
-        // set the position and rotation of the piece
-        // let position = this.el.getAttribute("position");
-        // this.el.setAttribute("position", { "x": position.x, "y": position.y, "z": this.data.downPosition });
-        // this.el.setAttribute("rotation", this.data.initRotationX + " " + this.data.initRotationY + " " + this.data.initRotationZ);
-
-        // this.pStart = new THREE.Vector3();
-        // this.el.addEventListener("click", this.forcePush.bind(this));
+        // set rotation of the piece
+        this.el.setAttribute("rotation", this.data.initRotationX + " " + this.data.initRotationY + " " + this.data.initRotationZ);
     },
     update: function () {
     },
     updateSchema: function (data) {
         let tempSchema = {};
-        tempSchema.initRotationY = {type: "number", default: 0};
+        tempSchema.initRotationX = {type: "number", default: 0};
+        tempSchema.initRotationZ = {type: "number", default: 0};
         // if piece is white then flip it
         if (data.color === "white") {
-            tempSchema.initRotationX = {type: "number", default: -90};
-            tempSchema.initRotationZ = {type: "number", default: 180};
+            tempSchema.initRotationY = {type: "number", default: 180};
         } else {
-            tempSchema.initRotationX = {type: "number", default: -90};
-            tempSchema.initRotationZ = {type: "number", default: 0};
+            tempSchema.initRotationY = {type: "number", default: 0};
         }
         this.extendSchema(tempSchema);
     }
