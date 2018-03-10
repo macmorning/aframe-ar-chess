@@ -5,7 +5,7 @@
 <script src="js/components.js"></script>
 <script src="js/chessboard.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
-<a-scene embedded arjs='sourceType: webcam;debugUIEnabled: false'  light="defaultLightsEnabled: false">
+<a-scene embedded arjs='trackingMethod: best;sourceType: webcam;debugUIEnabled: false'  light="defaultLightsEnabled: false">
     <a-assets>
         <a-mixin id="tile" 
             geometry="primitive: box; height: 0.2;" 
@@ -39,9 +39,14 @@
     <a-entity light="type: point; color: white; intensity: 1" position="-4 7 -5"></a-entity> 
     <a-entity light="type: ambient; color: white; intensity: 0.4"></a-entity> 
 
+    <a-anchor hit-testing-enabled='true'>
         <a-box static-body board id="boardContainer" width="0.1" depth="0.1" height="0.01" position="0 0 0"></a-box>
+    </a-anchor>
+
+    <!-- Define a static camera -->
+    <a-camera-static/>
 
     <!--a-marker-camera preset='hiro'></a-marker-camera-->
-    <a-marker type="pattern" patternUrl='assets/chess_marker.patt'></a-marker-camera>
+    <!--a-marker type="pattern" patternUrl='assets/chess_marker.patt'></a-marker-camera-->
 </a-scene>
 </body>
